@@ -1,0 +1,47 @@
+1. What is an API?
+An API (Application Programming Interface) is a set of rules that allows two applications to communicate with each other. When you use an app on your phone or visit a website, the app communicates with a server to fetch or send data. This communication happens via APIs.
+
+Think of APIs as the middleman between your app and the server that holds the data or functionality you're interested in.
+
+2. How does an API work?
+Here's the typical process:
+
+Request: The client (such as your app or browser) sends a request to the server (API). This request includes the endpoint (URL) and necessary data.
+Processing: The server processes the request, interacts with its database, and prepares the necessary response.
+Response: The server sends the requested data or a response message back to the client.
+
+
+3. API Structure
+An API generally has the following elements:
+
+Endpoint (URL): The URL where the API is accessible. Example: https://api.example.com/users
+Method (HTTP verbs): APIs use different methods to define what action is being taken. Common HTTP methods:
+GET: Retrieve data (e.g., getting a list of users).
+POST: Send data to the server (e.g., adding a new user).
+PUT: Update existing data.
+DELETE: Delete data.
+
+4. Headers and Authentication
+APIs often require you to send additional information along with your request, such as authentication tokens or headers that specify how the data should be handled. For example:
+
+Headers: Contain metadata for the API request (like content type).
+Authentication: Ensures secure access to the API. You may need to send a token like an API key in the header for permission.
+
+5. Status Codes
+When you send a request to an API, the response will contain a status code that indicates the result:
+
+200 OK: Success!
+201 Created: New resource successfully created (for POST requests).
+400 Bad Request: The server couldn't understand the request due to invalid syntax.
+401 Unauthorized: Authentication is required or failed.
+404 Not Found: The requested resource could not be found.
+500 Internal Server Error: The server encountered an error.
+
+
+----------To run fastAPI 
+python -m uvicorn main:app --reload             #main is filename and app is fastAPI instance
+
+----------To add products
+curl -X POST "http://127.0.0.1:8000/products/" \
+-H "Content-Type: application/json" \
+-d '{"name": "Laptop", "price": 999.99, "category": "Electronics"}'
